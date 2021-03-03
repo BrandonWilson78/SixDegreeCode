@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data class="app.sixdegree.databinding.TrailsRowBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.TrailRowVm" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/parent"
+        android:layout_width="@dimen/_245sdp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_extrasmall"
+        android:background="@color/white"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:padding="@dimen/width_zero"
+        android:tag="bla bla">
+
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="-2dp"
+            android:layout_marginTop="@dimen/margin_20"
+            android:layout_toRightOf="@+id/ll1"
+            android:src="@drawable/white_arrow_down"
+            android:tag="bla bla"
+            android:tint="@color/black_regular" />
+
+        <RelativeLayout
+            android:id="@+id/ll1"
+            android:layout_width="@dimen/_240sdp"
+            android:layout_height="match_parent"
+
+            android:padding="@dimen/width_zero"
+            android:tag="bla bla">
+
+            <ImageView
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="match_parent"
+
+                android:padding="@dimen/width_zero"
+                android:scaleType="centerCrop"
+                android:tag="bla bla"
+                bind:coverPic="@{viewModel.coverPic}" />
+            <!--        <RelativeLayout-->
+            <!--            android:id="@+id/ll1"-->
+            <!--            android:layout_width="240dp"-->
+            <!--            android:layout_height="match_parent"-->
+            <!--android:background="@color/trailcolor"-->
+            <!--            android:padding="@dimen/width_zero"-->
+            <!--            android:tag="bla bla"-->
+
+            <!--          >-->
+
+            <!--     <ImageView
+                     android:id="@+id/image"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:adjustViewBounds="true"
+                     android:tag="bla bla" />
+
+     -->
+
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/bottom_lay"
+
+
+                android:layout_centerVertical="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="@{(view)->viewModel.onTrailItemClicked(view)}"
+                android:onLongClick="@{(view) -> viewModel.onLongClickOnHeading(view)}"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_20"
+                android:tag="rv_item">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:tag="bla bla">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/bold"
+                        android:tag="bla bla"
+                        android:text="@{viewModel.name}"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_13" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/flag"
+                            android:layout_width="25dp"
+                            android:layout_height="23dp"
+                            android:adjustViewBounds="true"
+                            bind:flag="@{viewModel.flag}" />
+
+                        <TextView
+                            android:id="@+id/loc_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/bold"
+                            android:paddingLeft="@dimen/margin_10"
+                            android:text="@{viewModel.location}"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white_regular"
+                            android:textSize="@dimen/text_13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/placename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@drawable/marker"
+                        android:drawablePadding="@dimen/margin8"
+                        android:drawableTint="@color/white"
+                        android:fontFamily="@font/bold"
+                        android:gravity="center"
+                        android:text="@{viewModel.placename}"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_9"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/bottom_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/grey_bg"
+
+                android:onClick="@{(view) -> viewModel.goToSingleTrailAcitvity(view)}"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_extrasmall"
+                android:tag="bla bla">
+
+                <ImageView
+                    android:id="@+id/iv_delete"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="left"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    android:tint="#788679" />
+
+                <RelativeLayout
+                    android:id="@+id/rv_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/starborder"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="left"
+                        android:src="@drawable/star_border"
+                        android:tint="#788679" />
+
+                    <ImageView
+                        android:id="@+id/starfill"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="left"
+                        android:src="@drawable/star_fill"
+                        android:tint="#788679"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_likes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/heart_fill_"
+                        android:drawablePadding="@dimen/margin_extrasmall"
+                        android:text="@{viewModel.likesCount}"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_15"
+                        bind:likedByMe="@{viewModel.likedByMe}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_10"
+                        android:drawableLeft="@drawable/chat_"
+                        android:drawablePadding="@dimen/margin_extrasmall"
+                        android:drawableTint="#7a907b"
+                        android:text="@{viewModel.commentCount}"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_15" />
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

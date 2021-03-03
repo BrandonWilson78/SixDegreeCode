@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:id="@+id/parent"
+    android:layout_marginBottom="@dimen/margin_10"
+
+     android:orientation="vertical"
+    android:paddingLeft="@dimen/margin_10"
+    android:paddingRight="@dimen/margin_10">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+         android:layout_marginTop="@dimen/margin_10" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_msg"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/image"
+         android:orientation="horizontal"
+        android:paddingLeft="@dimen/margin_10"
+        android:weightSum="1"
+        android:paddingTop="@dimen/margin_extrasmall"
+        android:paddingRight="@dimen/margin_10">
+
+        <TextView
+            android:id="@+id/name_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/margin_extrasmall"
+android:layout_weight=".9"
+            android:text=" "
+             android:textColor="@color/black_regular"
+            android:textSize="@dimen/text_15" />
+
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:src="@drawable/plus_"
+    android:id="@+id/iv_follow"
+    android:layout_weight=".1"
+
+    android:padding="@dimen/margin_4"
+    android:layout_height="wrap_content">
+
+
+</ImageView>
+
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_4"
+            android:layout_weight=".1"
+            android:text=" "
+            android:textColor="@color/black_regular"
+            android:textSize="@dimen/text_13" />
+
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/image"
+
+        android:visibility="visible"
+         android:layout_marginTop="@dimen/margin8"
+        android:background="@drawable/divider" />
+
+
+
+    <ProgressBar
+        android:id="@+id/pbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/black_regular"
+        android:progressTint="@color/black_regular"
+        android:visibility="gone" />
+</RelativeLayout>

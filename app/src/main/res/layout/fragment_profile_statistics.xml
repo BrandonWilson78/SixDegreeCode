@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="app.sixdegree.databinding.FragmentProfileStatisticsBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.StatisticsVm" />
+    </data>
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_10"
+        android:background="@color/grey_bg"
+        android:paddingTop="@dimen/margin_20"
+        tools:context=".view.activity.home_module.fragments.ProfileStatisticsFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_regular"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_15">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/divider"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin_extrasmall"
+                android:paddingTop="@dimen/margin_extrasmall"
+                android:paddingRight="@dimen/margin_extrasmall"
+                android:paddingBottom="@dimen/margin_10"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_weight="0.5"
+                    android:gravity="right">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/map_" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/country_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/bold"
+                                    android:gravity="center"
+                                    android:paddingLeft="@dimen/margin_10"
+                                    android:paddingRight="@dimen/margin_10"
+                                    android:text="@{viewModel.country}"
+                                    android:textColor="@color/black_regular"
+                                    android:textSize="21sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/regular"
+                                    android:paddingLeft="@dimen/margin_10"
+                                    android:paddingRight="@dimen/margin_extrasmall"
+                                    android:text="@string/countries"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/black_regular"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:gravity="left"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/margin_extrasmall">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/globle_" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:paddingLeft="@dimen/margin_10">
+
+                                <TextView
+                                    android:id="@+id/currency_percent"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/bold"
+                                    android:gravity="center"
+                                    android:paddingRight="@dimen/margin_10"
+                                    android:text="@{viewModel.percentage}"
+                                    android:textColor="@color/black_regular"
+                                    android:textSize="21sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/regular"
+                                    android:paddingRight="@dimen/margin_10"
+                                    android:text="@string/of_the_world"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/black_regular"
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bold"
+                android:paddingLeft="@dimen/margin_10"
+                android:paddingTop="@dimen/margin_20"
+                android:paddingRight="@dimen/margin_extrasmall"
+                android:text="@string/continents_visited"
+                android:textAllCaps="true"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_13" />
+
+            <ImageView
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:padding="@dimen/margin_20" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/country_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.7dp"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@drawable/divider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bold"
+                android:paddingLeft="@dimen/margin_10"
+                android:paddingTop="@dimen/margin_20"
+                android:paddingRight="@dimen/margin_extrasmall"
+                android:text="Flags Collected"
+                android:textAllCaps="true"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_13" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/flags_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin_10" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.7dp"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@drawable/divider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_20"
+                android:fontFamily="@font/bold"
+                android:paddingLeft="@dimen/margin_10"
+                android:paddingTop="@dimen/margin_20"
+                android:paddingRight="@dimen/margin_extrasmall"
+                android:text="totals"
+                android:textAllCaps="true"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_13" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_extrasmall">
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="@font/bold"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_10"
+                        android:text="@{viewModel.totaldays}"
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/regular"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_10"
+                        android:text="Days"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="@font/bold"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_10"
+                        android:text="@{viewModel.totalhours}"
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/regular"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_10"
+                        android:text="Hours"
+                        android:textAllCaps="true"
+
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="@font/bold"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_10"
+                        android:text="@{viewModel.totalMinutes}"
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/regular"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_10"
+                        android:text="minutes"
+
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="@font/bold"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_10"
+                        android:text="@{viewModel.totalSeconds}"
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_15" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/regular"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_extrasmall"
+                        android:text="seconds"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_11" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/trailss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/trail_"
+                        android:drawablePadding="@dimen/margin_10"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:fontFamily="@font/semibold"
+                        android:gravity="right"
+                        android:padding="@dimen/margin_10"
+                        android:text="@{viewModel.tripTrails}"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_13" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/foot_"
+                        android:drawablePadding="@dimen/margin_10"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:fontFamily="@font/semibold"
+                        android:gravity="right"
+                        android:padding="@dimen/margin_10"
+                        android:text="@{viewModel.totalkms}"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_13" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

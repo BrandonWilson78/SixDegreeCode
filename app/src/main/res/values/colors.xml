@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4fb89c</color>
+    <color name="colorPrimaryDark">#2A2E43</color>
+    <color name="colorAccent">#4fb89c</color>
+    <color name="green_light">#bce1c1</color>
+    <color name="green_icon_color">#2A2E43</color>
+    <color name="grey_icon_color">#2A2E43</color>
+    <color name="black_regular">#000</color>
+    <color name="blue_light">#dfebf2</color>
+    <color name="white_regular">#fff</color>
+    <color name="grey">#e3e3e3</color>
+    <color name="light_text">#6d6e70</color>
+    <color name="grey_bg">#e3e3e3</color>
+    <color name="purple">#9400D3</color>
+    <color name="red">#EC1C24</color>
+    <color name="green">#29B473</color>
+    <color name="trailcolor">#4db89a</color>
+     <color name="black_transparent">#22000000</color>
+     <color name="transparent">#ffffff</color>
+     <array name="tab_colors">
+        <item name="tab_1">#455C65</item>
+        <item name="tab_2">#00886A</item>
+        <item name="tab_3">#8B6B62</item>
+        <item name="tab_4">#6C4A42</item>
+        <item name="tab_5">#F63D2B</item>
+    </array>
+</resources>

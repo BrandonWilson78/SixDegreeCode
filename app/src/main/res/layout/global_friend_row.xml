@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
+    app:ignore="NamespaceTypo">
+
+    <data class="app.sixdegree.databinding.GlobalFriendRowViewBinding">
+
+        <import type="android.view.View" />
+ <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.ViewFriendRowVm" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_5"
+        android:id="@+id/ll"
+        android:onClick="@{(view)->viewModel.goToProfileFragment(view)}"
+        android:layout_marginTop="@dimen/margin8"
+          android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:visibility="gone"
+            android:background="@color/black_regular" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_extrasmall">
+
+            <ImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+
+
+                android:layout_centerVertical="true"
+                android:scaleType="centerCrop"
+
+                bind:profilePic="@{viewModel.profilePic}" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/profile_pic"
+
+    android:paddingLeft="@dimen/margin_5"
+    android:paddingRight="@dimen/margin_5"
+    android:layout_centerVertical="true"
+     android:layout_gravity="center_vertical"
+    android:layout_toLeftOf="@+id/ll_icons"
+    android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/semibold"
+                android:gravity="center_vertical"
+                 android:text="@{viewModel.name}"
+                 android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_13" />
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+android:fontFamily="@font/regular"
+        android:layout_height="wrap_content"
+        android:text="@{viewModel.placename}"
+         android:textColor="@color/black_regular"
+        android:textSize="@dimen/text_11" />
+
+
+
+</LinearLayout>
+            <LinearLayout
+                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_icons"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right"
+                android:gravity="right"
+                 android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/iv_msg"
+                    android:tint="@color/green_icon_color"
+                    android:padding="@dimen/margin8"
+                     android:layout_gravity="center_vertical"
+                     android:src="@drawable/message_darkgreen"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/add"
+                    android:tint="@color/green_icon_color"
+                    android:padding="@dimen/margin8"
+                     android:layout_gravity="center_vertical"
+                    android:onClick="@{(view)-> viewModel.goToMapFragment(add)}"
+                     android:src="@drawable/ic_gps"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/remove"
+android:tint="@color/green_icon_color"
+                    android:padding="@dimen/margin8"
+                    android:onClick="@{(view)-> viewModel.removenew(remove)}"
+                     android:src="@drawable/ic_unfriend"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+      <RelativeLayout
+            android:id="@+id/trail_bg"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            bind:coverPic="@{viewModel.coverpic}">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/margin_15"
+                android:paddingTop="@dimen/margin_30"
+                android:paddingRight="@dimen/margin_15"
+                android:onClick="@{(view)->viewModel.goToProfileFragment(view)}"
+                android:paddingBottom="@dimen/margin_15"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dark_right_" />
+   <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerVertical="true"
+                android:background="@color/black_transparent"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_10">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:src="@drawable/plane" />
+
+                <TextView
+                    android:id="@+id/traveling_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:fontFamily="@font/semibold"
+                    android:text="@{viewModel.travellingStatus}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white_regular"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:id="@+id/trail_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:fontFamily="@font/bold"
+                    android:text="@{viewModel.tripname}"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white_regular"
+                    android:textSize="@dimen/text_17" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:gravity="left"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/place_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/marker"
+                        android:drawablePadding="@dimen/margin_10"
+                        android:fontFamily="@font/bold"
+                        android:text="@{viewModel.placename}"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_11" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/tv_currentdays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:fontFamily="@font/bold"
+        android:text="@{viewModel.currentdays}"
+        android:textAllCaps="true"
+        android:textColor="@color/white_regular"
+        android:textSize="@dimen/text_11" />
+
+    <TextView
+        android:id="@+id/days_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bold"
+        android:text="@{viewModel.totaldays}"
+        android:textAllCaps="true"
+        android:textColor="@color/white_regular"
+        android:textSize="@dimen/text_11" />
+
+    <TextView
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:drawablePadding="@dimen/margin_10"
+        android:fontFamily="@font/bold"
+        android:text="@{viewModel.totaldistance}"
+        android:textAllCaps="true"
+        android:textColor="@color/white_regular"
+        android:textSize="@dimen/text_11" />
+
+    <TextView
+        android:id="@+id/likes"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:drawableRight="@drawable/heart"
+        android:drawablePadding="@dimen/margin_extrasmall"
+        android:fontFamily="@font/bold"
+        android:text="@{viewModel.totallikes}"
+        android:textAllCaps="true"
+        android:textColor="@color/white_regular"
+        android:textSize="@dimen/text_11" />
+</LinearLayout>
+
+                </LinearLayout>
+ </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:visibility="visible"
+
+            android:layout_marginTop="@dimen/margin8"
+            android:padding="@dimen/margin_10"
+            android:background="@color/grey" />
+
+    </LinearLayout>
+</layout>

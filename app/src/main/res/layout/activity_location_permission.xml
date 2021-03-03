@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_regular"
+    android:orientation="vertical"
+    tools:context=".view.activity.LocationPermissionActivity">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="@dimen/margin_20"
+        android:src="@drawable/_backicon_blue" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/margin_20"
+        android:paddingRight="@dimen/margin_20">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:src="@drawable/enablelocationsicon_blue" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/semibold"
+            android:gravity="center"
+            android:padding="@dimen/margin_10"
+            android:text="@string/please_enable_location"
+            android:textAllCaps="true"
+            android:textColor="@color/black_regular"
+            android:textSize="@dimen/text_17" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            android:gravity="center"
+            android:text="@string/permi_string"
+            android:textAllCaps="true"
+            android:textColor="@color/black_regular"
+            android:textSize="@dimen/text_11" />
+
+        <Button
+            android:id="@+id/btn_enable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_30"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/margin_20"
+            android:textSize="@dimen/text_17"
+            android:fontFamily="@font/semibold"
+            android:textAllCaps="false"
+            android:text="@string/enable_location_services"
+            android:textColor="@color/white_regular" />
+    </LinearLayout>
+
+</RelativeLayout>

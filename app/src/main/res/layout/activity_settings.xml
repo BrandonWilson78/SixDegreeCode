@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+
+    <data class="app.sixdegree.databinding.ActivitySettingsBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.SettingsVm" />
+
+    </data>
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.settings_module.SettingsActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/margin_10"
+                android:paddingRight="@dimen/margin_15"
+                android:paddingBottom="@dimen/margin_10"
+                android:src="@drawable/back"
+                android:tint="@color/white_regular" />
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/semibold"
+                android:text="@{viewModel.toolbarTitle}"
+                android:textAllCaps="true"
+
+                android:textColor="@color/white_regular" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_layout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/btn_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="Profile"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/btn_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="Account"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+                <TextView
+                    android:id="@+id/tv_blocked_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="Blocked users"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+
+                <TextView
+                    android:id="@+id/btn_invite_frnds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="Find &amp; Invite friends"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/notificatios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:visibility="gone"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="Notifications"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_bg"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_10"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_10"
+                    android:text="acc type"
+                    android:textAllCaps="true"
+                    android:textColor="@color/light_text"
+                    android:textSize="@dimen/text_15" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/acc_type_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/privateSwitch"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="@font/semibold"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingTop="@dimen/margin_15"
+                        android:paddingRight="@dimen/margin_10"
+                        android:paddingBottom="@dimen/margin_15"
+                        android:text="@{viewModel.accountTypeString}"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_15" />
+
+                    <Switch
+                        android:id="@+id/privateSwitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:checked="@{viewModel.accountType==0?false:true}"
+                        android:onClick="@{(view)-> viewModel.changeProfileMode(view)}"
+                        android:outlineAmbientShadowColor="@color/colorPrimary"
+                        android:thumbTint="@color/colorPrimary"
+                      />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_bg"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_10"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_10"
+                    android:text="app settings"
+                    android:textAllCaps="true"
+                    android:textColor="@color/light_text"
+                    android:textSize="@dimen/text_15" />
+
+                <RelativeLayout
+                    android:id="@+id/units_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/unit_val_tv"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="@font/semibold"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingTop="@dimen/margin_15"
+
+                        android:paddingRight="@dimen/margin_10"
+                        android:paddingBottom="@dimen/margin_15"
+                        android:text="Units"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_15" />
+
+                    <TextView
+                        android:id="@+id/unit_val_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:drawablePadding="@dimen/margin_5"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:drawableTint="@color/colorPrimary"
+                        android:layout_marginLeft="@dimen/margin_10"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:text="@{viewModel.units}"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/temp_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/temp_unit"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="@font/semibold"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingTop="@dimen/margin_15"
+                        android:paddingRight="@dimen/margin_10"
+                        android:paddingBottom="@dimen/margin_15"
+
+                        android:text="Temperature"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_15" />
+
+                    <TextView
+                        android:id="@+id/temp_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:layout_marginLeft="@dimen/margin_10"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:text="@{viewModel.temp}"
+                        android:drawableTint="@color/colorPrimary"
+                        android:drawablePadding="@dimen/margin_5"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/map_style_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/map_style_val"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="@font/semibold"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingTop="@dimen/margin_15"
+                         android:paddingRight="@dimen/margin_10"
+                        android:paddingBottom="@dimen/margin_15"
+                        android:text="Map Style"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black_regular"
+                        android:textSize="@dimen/text_15" />
+
+                    <TextView
+                        android:id="@+id/map_style_val"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10"
+                        android:drawableRight="@drawable/down_arrow"
+                        android:layout_marginRight="@dimen/margin_10"
+                         android:textAllCaps="true"
+                        android:text="@{viewModel.mapUnit}"
+                        android:drawablePadding="@dimen/margin_5"
+                        android:drawableTint="@color/colorPrimary"
+                        android:textColor="@color/colorPrimary" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_bg"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_10"
+                    android:paddingRight="@dimen/margin_10"
+                    bind:baseRes="@{viewModel.baseRes}"
+                    android:paddingBottom="@dimen/margin_10"
+                    android:text="follow us on social media"
+                    android:textAllCaps="true"
+                    android:textColor="@color/light_text"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/btn_insta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:drawableRight="@drawable/ic_insta"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="Instagram"
+                    android:drawableTint="@color/green_icon_color"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/btn_facebook"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:drawableRight="@drawable/ic_fb"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="Facebook"
+                    android:drawableTint="@color/green_icon_color"
+
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/btn_twitter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:drawableRight="@drawable/ic_twitter"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:drawableTint="@color/green_icon_color"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="Twitter"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_bg"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_10"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_10"
+                    android:text="About Six Degree"
+                    android:textAllCaps="true"
+                    android:textColor="@color/light_text"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/btn_story"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="our story"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/btn_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="contact us"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/btn_legal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/divider"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="legal"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_15" />
+
+                <TextView
+                    android:id="@+id/logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:drawableEnd="@drawable/logouticon_white"
+                    android:drawablePadding="@dimen/margin_15"
+                    android:drawableTint="@color/white_regular"
+                    android:fontFamily="@font/semibold"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingTop="@dimen/margin_15"
+                    android:paddingRight="@dimen/margin_15"
+                    android:paddingBottom="@dimen/margin_15"
+                    android:text="Logout "
+                    android:textAllCaps="true"
+                    android:textColor="@color/white_regular"
+                    android:textSize="@dimen/text_15" />
+            </LinearLayout>
+        </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/black_regular"
+            android:progressTint="@color/black_regular"
+            android:visibility="@{viewModel.isLoading? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+</layout>

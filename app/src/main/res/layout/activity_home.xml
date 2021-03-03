@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <data class="app.sixdegree.databinding.ActivityHomeBinding">
+         <import type="android.view.View" />
+         <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.HomeVm" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/frame_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/navigation" />
+
+
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@color/green_icon_color"
+                app:itemIconTint="@drawable/selector"
+                 android:layout_alignParentBottom="true"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/navigation_items"
+                />
+
+
+<!--            <com.aurelhubert.ahbottomnavigation.AHBottomNavigation-->
+<!--                android:id="@+id/navigation"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--android:visibility="gone"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:layout_gravity="bottom"-->
+<!--                android:background="@color/black_regular"-->
+<!--                app:labelVisibilityMode="unlabeled"-->
+<!--                  />-->
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

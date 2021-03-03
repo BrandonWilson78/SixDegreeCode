@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data class="app.sixdegree.databinding.FragmentNotificationViewBinding">
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.NotificationFragmentVm" />
+    </data>
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+  >
+
+
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/semibold"
+            android:text="Notification"
+            android:textAllCaps="true"
+            android:textColor="@color/white_regular"
+            android:textSize="@dimen/text_15" />
+
+        <ImageView
+            android:id="@+id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:layout_gravity="right"
+            android:src="@drawable/more_vertical" />
+
+    </androidx.appcompat.widget.Toolbar>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/tool_layout"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_centerInParent="true"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:visibility="gone"
+                android:id="@+id/tv_no"
+                android:textColor="@color/black"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/regular"
+                android:textSize="@dimen/text_15"
+                android:text="No notifications found."
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool_layout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <LinearLayout
+                android:id="@+id/request_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/top"
+                android:visibility="@{viewModel.isVisible ? View.GONE : View.VISIBLE}"
+                  android:orientation="vertical"
+             >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_10"
+                    android:text="friend request"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_13" />
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_centerInParent="true"
+                        android:id="@+id/tv_dummytext"
+                        android:padding="10dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                         android:fontFamily="@font/regular"
+                        android:visibility="@{viewModel.visible ? View.VISIBLE : View.INVISIBLE}"
+                        android:textSize="@dimen/text_15"
+                        android:text="@{viewModel.dummytext}"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/notification_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/top"
+                        android:visibility="@{viewModel.visible ? View.INVISIBLE : View.VISIBLE}"
+
+                        android:padding="@dimen/margin_10"
+                        bind:adapter="@{viewModel.followerRequestsAdapter}"
+                        android:paddingLeft="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_extrasmall" />
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+     <!--       <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                 android:id="@+id/notificationtv"
+                android:text="Notifications"
+                android:padding="@dimen/margin_10"
+                android:layout_below="@+id/request_layout"
+                android:textAllCaps="true"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_13" />-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tagnotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/request_layout"
+
+                android:padding="@dimen/margin_10"
+                android:paddingLeft="@dimen/margin_extrasmall"
+                android:paddingRight="@dimen/margin_extrasmall" />
+
+
+            <ProgressBar
+                android:id="@+id/pbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="@color/black_regular"
+                android:progressTint="@color/black_regular"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout></layout>

@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:autofilledHighlight">@color/colorAccent</item>
+     </style>
+
+
+    <style name="app_slider_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">1dp</item>
+        <item name="android:paddingRight">1dp</item>
+        <item name="shape">rect</item>
+        <item name="padding_left">2dp</item>
+        <item name="padding_right">2dp</item>
+        <item name="padding_top">4dp</item>
+        <item name="padding_bottom">4dp</item>
+        <item name="selected_color">@color/colorPrimary</item>
+        <item name="unselected_color">#fff</item>
+        <item name="selected_width">15dp</item>
+        <item name="selected_height">4dp</item>
+        <item name="unselected_width">15dp</item>
+        <item name="unselected_height">4dp</item>
+    </style>
+
+    <style name="bottom_navigation_style">
+
+         <item name="android:background">@color/black_regular</item>
+        <item name="itemIconTint">@color/tabs_</item>
+        <item name="itemTextColor">@color/tabs_</item>
+    </style>
+    <style name="circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="android:radius">10dp</item>
+         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/colorPrimary</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">#000</item>
+        <!-- Used for the background -->
+        <item name="android:background">#fff</item>
+    </style>
+ </resources>

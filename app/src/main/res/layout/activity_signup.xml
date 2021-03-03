@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/apk/res-auto">
+
+    <data class="app.sixdegree.databinding.ActivitySignupBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.SignupVm" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_regular">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="handleBack"
+                android:tint="@color/green_icon_color"
+                android:padding="@dimen/margin_20"
+                android:src="@drawable/_backicon_blue" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/margin_30"
+                android:paddingRight="@dimen/margin_30">
+
+
+                <ScrollView
+
+                    android:layout_width="match_parent"
+                    android:scrollbars="none"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/margin_30"
+                        android:paddingBottom="@dimen/margin_30"
+                        android:orientation="vertical">
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_gravity="center"
+                            android:layout_height="110dp">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:id="@+id/ivdummy"
+                                android:visibility="@{viewModel.picAvailable ? View.GONE : View.VISIBLE}"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/logo_blue"
+                                android:layout_gravity="center"
+                                android:adjustViewBounds="true"
+                                /> <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
+                            android:id="@+id/ivProfile"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            bind:profilePic="@{viewModel.profilePic  }"
+                            android:adjustViewBounds="true"
+                            />
+                        </RelativeLayout>
+
+
+                        <EditText
+                            android:id="@+id/name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:background="@drawable/divider"
+                            android:drawableLeft="@drawable/_usericon_dgreen"
+                            android:drawablePadding="@dimen/margin_20"
+                            android:hint="@string/name"
+                            android:drawableTint="@color/green_icon_color"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:padding="@dimen/margin_20"
+                            android:text="@={viewModel.name}"
+                            android:textColor="@color/black_regular"
+                            android:textColorHint="@color/grey"
+                            android:textSize="@dimen/text_13" />
+
+                        <EditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:drawableTint="@color/green_icon_color"
+                            android:background="@drawable/divider"
+                            android:drawableLeft="@drawable/_envelopeicon_dgreen"
+                            android:drawablePadding="@dimen/margin_20"
+                            android:hint="@string/email_address"
+                            android:imeOptions="actionNext"
+
+                            android:inputType="textEmailAddress"
+                            android:padding="@dimen/margin_20"
+                            android:text="@={viewModel.email}"
+                            android:textColor="@color/black_regular"
+                            android:textColorHint="@color/grey"
+                            android:textSize="@dimen/text_13" />
+                        <EditText
+                            android:id="@+id/phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTint="@color/green_icon_color"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:maxLength="13"
+                            android:background="@drawable/divider"
+                            android:drawableLeft="@drawable/ic_phone_black_24dp"
+                            android:drawablePadding="@dimen/margin_20"
+                            android:hint="Phone number"
+                            android:imeOptions="actionNext"
+
+                            android:inputType="number"
+                            android:padding="@dimen/margin_20"
+                            android:text="@={viewModel.phonenumber}"
+                            android:textColor="@color/black_regular"
+                            android:textColorHint="@color/grey"
+                            android:textSize="@dimen/text_13" />
+
+                        <EditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/divider"
+                            android:drawableLeft="@drawable/_lockicon_dgreen"
+                            android:drawableRight="@drawable/hide_p"
+                            android:drawablePadding="@dimen/margin_20"
+                            android:hint="Password"
+                            android:drawableTint="@color/green_icon_color"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPassword"
+
+                            android:padding="@dimen/margin_20"
+                            android:text="@={viewModel.pass}"
+                            android:textColor="@color/black_regular"
+                            android:textColorHint="@color/grey"
+                            android:textSize="@dimen/text_13" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/add_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/divider"
+                                android:drawableLeft="@drawable/_usercircleicon_dgreen"
+                                android:drawablePadding="@dimen/margin_20"
+                                android:hint="Add profile picture"
+                                android:drawableTint="@color/green_icon_color"
+                                android:text="@{viewModel.isImageSelected}"
+                                android:imeOptions="actionNext"
+                                android:inputType="textEmailAddress"
+                                android:padding="@dimen/margin_20"
+
+                                android:textColor="@color/black_regular"
+                                android:textColorHint="@color/grey"
+                                android:textSize="@dimen/text_13" />
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/add_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:background="@drawable/divider"
+                            android:drawableLeft="@drawable/_homeicon_dgreen"
+                            android:drawablePadding="@dimen/margin_20"
+                            android:hint="Set home location"
+                            android:imeOptions="actionDone"
+                            android:inputType="textEmailAddress"
+                            android:padding="@dimen/margin_20"
+                            android:text="@={viewModel.home}"
+                            android:drawableTint="@color/green_icon_color"
+                            android:textColor="@color/black_regular"
+                            android:textColorHint="@color/grey"
+                            android:textSize="@dimen/text_13" />
+
+                        <Button
+                            android:id="@+id/btn_nxt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_30"
+                            android:background="@color/colorPrimary"
+                            android:onClick="@{()-> viewModel.validateData()}"
+                            android:padding="@dimen/margin_20"
+                            android:text="Next"
+
+                            android:textSize="@dimen/text_17"
+                            android:fontFamily="@font/semibold"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white_regular"
+                            bind:errorMsg="@{viewModel.errorMsg}"
+                            bind:loggedIn="@{viewModel.loggedIn}" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/margin_10"
+                            android:text="Forgot Password?"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white_regular"
+                            android:textSize="@dimen/text_15" />
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/green_icon_color"
+            android:progressTint="@color/green_icon_color"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+
+
+</layout>

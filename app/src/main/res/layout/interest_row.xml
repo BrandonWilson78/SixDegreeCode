@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+<data>
+    <variable
+        name="viewModel"
+        type="app.sixdegree.viewModel.InterestCategoryVm" />
+</data>
+    <LinearLayout
+        android:layout_marginBottom="@dimen/margin8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+android:layout_marginTop="@dimen/margin_20"
+             android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image_bg"
+                bind:coverPic="@{viewModel.coverPic}"
+                android:layout_width="50dp"
+android:layout_gravity="center"
+                 android:layout_height="50dp"
+                  />
+            <CheckBox
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bold"
+                android:buttonTint="@color/colorPrimaryDark"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:button="@null"
+                 android:drawableBottom="?android:attr/listChoiceIndicatorMultiple"
+                android:text="@{viewModel.name}"
+                 android:includeFontPadding="false"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_17" />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/grey">
+
+        </View>
+     </LinearLayout>
+</layout>

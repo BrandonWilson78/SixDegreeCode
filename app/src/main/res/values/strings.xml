@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Six Degree</string>
+    <string name="login_via_facebook">Login Via Facebook</string>
+    <string name="username_email_address">Username/Email address</string>
+    <string name="email_address">Email address</string>
+    <string name="name">Name</string>
+    <string name="permi_string">we need access to your location in order\nfor travel tracker to work</string>
+    <string name="please_enable_location">please enable location</string>
+    <string name="enable_location_services">Enable location services</string>
+    <string name="email_string">Please enter the varification code sent to\nyour email id</string>
+
+    <string name="enter_code">Enter code</string>
+    <string name="verify">Verify</string>
+    <string name="verified_string">Thank you your email address is verified\nplease continue to the last step</string>
+    <string name="add_friends">Add Friends</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="continents_visited">continents visited</string>
+    <string name="of_the_world">of the world</string>
+    <string name="countries">Countries</string>
+    <string name="dummy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,</string>
+    <string name="dummy_text_small">Lorem Ipsum is simply dummy text of the printing and typesetting industry</string>
+    <string name="you_saar_amp_paul_maxine_meunich_and_20_others_likes_it"> You, <b>Saar &amp; Paul, Maxine Meunich </b>and 20 others likes it  </string>
+    <string name="saar_paul_amazing"><![CDATA[Saar & paul Amazing!]]></string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="unfollow">unfollow</string>
+    <string name="search">Search</string>
+    <string name="surname">surname</string>
+    <string name="profile">profile</string>
+    <string name="account">Account</string>
+    <string name="username">username</string>
+    <string name="changepass">change password</string>
+    <string name="forgot_string">please enter your registered email id to recover account access.</string>
+    <string name="to">to</string>
+
+    <!--//facebook id-->
+    <string name="facebook_app_id">355424722053801</string>
+    <string name="fb_login_protocol_scheme">fb355424722053801</string>
+
+    <string name="resendcode">Resend code</string>
+    <string name="no_friends_found">No friends found.</string>
+
+    <string-array name="units">
+        <item>Kilometer</item>
+        <item>Miles</item>
+        <item>Meter</item>
+    </string-array>
+
+    <string-array name="mapstyle">
+        <item>Roadmap</item>
+        <item>Satellite</item>
+        <item>Hybrid</item>
+        <item>Terrain</item>
+    </string-array>
+
+    <string-array name="temprature">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+
+    </string-array>
+</resources>

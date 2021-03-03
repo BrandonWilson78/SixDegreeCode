@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data class="app.sixdegree.databinding.ActivityTrailDetailsBinding">
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.TripDetailsVm" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+  <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+      android:weightSum="10"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="@dimen/width_zero"
+                android:layout_weight="6.5"
+                android:background="@color/black_transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:inAnimation="@android:anim/slide_in_left"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/top_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:foreground="@color/black_transparent"
+                         android:transitionName="pic"
+                        android:visibility="@{viewModel.displayMap ? View.GONE : View.VISIBLE}"
+                        >
+                        <ImageView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:layout_alignParentRight="true"
+                            bind:coverPic="@{viewModel.coverPic}"
+                           />
+                        <ImageView
+                            android:id="@+id/edit_trail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:padding="@dimen/margin_10"
+                            android:src="@drawable/settings" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:orientation="vertical"
+                                android:paddingTop="@dimen/margin_30">
+
+
+                                <TextView
+                                    android:id="@+id/date"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/semibold"
+                                    android:text="@{viewModel.date}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/white_regular"
+                                    android:textSize="@dimen/text_13" />
+
+                                <TextView
+                                    android:id="@+id/trail_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/margin_extrasmall"
+                                    android:gravity="center"
+                                    android:fontFamily="@font/bold"
+                                    android:padding="5dp"
+                                    android:text="@{viewModel.tripName}"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/white_regular"
+                                    android:textSize="@dimen/text21"
+                                    android:transitionName="name" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                     android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/trail_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/bold"
+                                        android:text="@{viewModel.trailCount}"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/white_regular"
+                                        android:textSize="@dimen/text_13" />
+
+
+                                    <TextView
+                                        android:id="@+id/days_count"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/margin_10"
+                                        android:fontFamily="@font/bold"
+                                        android:text="@{viewModel.days}"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/white_regular"
+                                        android:textSize="@dimen/text_13" />
+
+                                    <TextView
+                                        android:id="@+id/distance"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/margin_10"
+                                        android:drawablePadding="@dimen/margin_10"
+                                        android:fontFamily="@font/bold"
+                                        android:text="@{viewModel.kilometer}"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/white_regular"
+                                        android:textSize="@dimen/text_13" />
+
+                                    <TextView
+                                        android:id="@+id/likes"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/margin_10"
+                                        android:drawableRight="@drawable/ic_heart"
+                                        android:drawablePadding="@dimen/margin_extrasmall"
+                                        android:layout_gravity="center"
+                                        android:gravity="center"
+                                        android:visibility="gone"
+                                        android:fontFamily="@font/bold"
+                                        android:text="@{viewModel.likes}"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/white_regular"
+                                        android:textSize="@dimen/text_13" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/description"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/regular"
+                                   android:layout_marginTop="@dimen/margin8"
+                                    android:text="@{viewModel.trailDesc}"
+                                    android:textAlignment="center"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/white_regular"
+                                    android:textSize="@dimen/text_13" />
+                                <TextView
+                                    android:id="@+id/tripuser"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/regular"
+                                    android:layout_marginTop="@dimen/margin_4"
+                                    android:layout_marginBottom="@dimen/margin_4"
+                                    android:textAllCaps="true"
+                                    android:text="@{viewModel.tripuser}"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/text_13" />
+
+                                <TextView
+                                    android:id="@+id/tagnames"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/regular"
+android:textAllCaps="true"
+                                     android:layout_marginBottom="@dimen/margin_4"
+                                    android:text="@{viewModel.tagnames}"
+                                    android:textAlignment="center"
+                                     android:textColor="@color/white"
+                                    android:textSize="@dimen/text_11" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.displayMap ? View.VISIBLE : View.GONE}">
+
+                               <com.google.android.gms.maps.MapView
+                                   android:id="@+id/map"
+                                   android:name="com.google.android.gms.maps.MapFragment"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="match_parent"
+                                   android:apiKey="@string/google_api_key"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="0dp"
+                android:layout_weight="3.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/profile_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey_bg"
+                    android:drawableLeft="@drawable/_backicon_blue"
+                    android:drawablePadding="@dimen/margin_10"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:padding="@dimen/margin_10"
+                    android:text="profile"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/profile_label"
+
+                    android:background="@color/white_regular"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary" />
+
+                    <!--
+                                        <app.sixdegree.utils.SnappingHorizontalScrollView
+                                            android:id="@+id/scroll"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                             android:padding="0dp"
+                                            android:scrollbars="none">
+
+                                            <HorizontalScrollView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:scrollbars="none">
+                    -->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:layout_gravity="center_vertical">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/trails_rv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginTop="@dimen/margin_extrasmall"
+                                android:clipToPadding="false"
+                                android:nestedScrollingEnabled="false"
+                                bind:adapter="@{viewModel.trailAdapter}" />
+                        </RelativeLayout>
+                        <!--
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="match_parent"
+                                                            android:layout_gravity="center_vertical"
+                                                            android:layout_marginTop="2dp"
+                                                            android:layout_marginBottom="8dp"
+                                                            android:orientation="horizontal">
+
+                                                            <View
+                                                                android:layout_width="50dp"
+                                                                android:layout_height="2dp"
+                                                                android:layout_gravity="center"
+                                                                android:layout_weight="1"
+                                                                android:background="@color/colorPrimary"
+                                                                android:visibility="invisible" />
+
+
+                                                            <LinearLayout
+                                                                android:id="@+id/plan_next"
+                                                                android:layout_width="180dp"
+                                                                android:layout_height="160dp"
+                                                                android:layout_gravity="center_vertical"
+                                                                android:layout_marginTop="@dimen/margin_10"
+                                                                android:layout_marginBottom="@dimen/margin_extrasmall"
+                                                                android:layout_toRightOf="@+id/trails_rv"
+                                                                android:background="@drawable/grey_dot_square"
+                                                                android:gravity="center"
+                                                                android:orientation="vertical">
+
+
+                                                                <ImageView
+                                                                    android:layout_width="50dp"
+                                                                    android:layout_height="50dp"
+                                                                    android:layout_gravity="center"
+                                                                    android:adjustViewBounds="true"
+                                                                    android:background="@drawable/grey_plus" />
+
+                                                                <TextView
+                                                                    android:layout_width="wrap_content"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:layout_marginLeft="@dimen/margin_10"
+                                                                    android:layout_marginRight="@dimen/margin_10"
+                                                                    android:fontFamily="@font/semibold"
+                                                                    android:paddingTop="@dimen/margin_10"
+                                                                    android:text="Plan Your next trail"
+                                                                    android:textAllCaps="true"
+                                                                    android:textColor="@color/black_regular"
+                                                                    android:textSize="@dimen/text_11" />
+
+
+                                                            </LinearLayout>
+
+                                                            <View
+                                                                android:layout_width="50dp"
+                                                                android:layout_height="2dp"
+                                                                android:layout_gravity="center"
+                                                                android:layout_weight="1"
+                                                                android:background="@color/colorPrimary"
+                                                                android:visibility="invisible" />
+
+                                                            <LinearLayout
+                                                                android:layout_width="match_parent"
+                                                                android:layout_height="wrap_content"
+                                                                android:layout_gravity="center_vertical"
+                                                                android:layout_marginTop="@dimen/margin_10"
+                                                                android:layout_marginRight="@dimen/margin_10"
+                                                                android:background="@color/white_regular"
+                                                                android:gravity="center"
+                                                                android:orientation="vertical">
+
+
+                                                                <ImageView
+                                                                    android:layout_width="36dp"
+                                                                    android:layout_height="36dp"
+                                                                    android:src="@drawable/flag_" />
+
+
+                                                                <TextView
+                                                                    android:layout_width="wrap_content"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:fontFamily="@font/semibold"
+                                                                    android:paddingTop="@dimen/margin_10"
+                                                                    android:text="06 Jan 2020"
+                                                                    android:textAllCaps="true"
+                                                                    android:textColor="@color/black_regular"
+                                                                    android:textSize="@dimen/text_11" />
+                                                            </LinearLayout>
+                                                        </LinearLayout>-->
+                    </LinearLayout>
+                    <!--  </HorizontalScrollView>
+
+                  </app.sixdegree.utils.SnappingHorizontalScrollView>-->
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/black_regular"
+            android:progressTint="@color/black_regular"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+</layout>
+

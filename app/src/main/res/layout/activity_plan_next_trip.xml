@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+
+    <data class="app.sixdegree.databinding.ActivityPlanNextTripBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.AddEditTrailVm" />
+    </data>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:id="@+id/scrollview_"
+    android:paddingBottom="@dimen/_30sdp"
+    android:fillViewport="true"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:src="@drawable/back"
+                android:id="@+id/ivback"
+                android:padding="@dimen/margin_10"
+                android:drawableTint="@color/white_regular"
+                android:layout_height="match_parent">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/semibold"
+                android:text="plan next Pitstop"
+                android:textAllCaps="true"
+                android:textColor="@color/white_regular"
+                android:textSize="@dimen/text_15" />
+
+            <ImageView
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/margin_20"
+                android:onClick="@{()->viewModel.validateData()}"
+                android:src="@drawable/profile_save"
+                android:tint="@color/white_regular"
+                bind:errorMsg="@{viewModel.errorMsg}" />
+
+        </androidx.appcompat.widget.Toolbar>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/rl"
+            android:layout_below="@+id/tool_layout"
+            android:layout_height="wrap_content">
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.MapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_250sdp"
+
+                android:apiKey="@string/google_api_key" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/marker" />
+        </RelativeLayout>
+     <!--   <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl"
+         >-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rl"
+
+                android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:paddingRight="@dimen/margin_10">
+                    <RelativeLayout
+                        android:id="@+id/iv_trail"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_200sdp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:layout_marginBottom="@dimen/margin_extrasmall"
+                        android:layout_toRightOf="@+id/trails_rv"
+                        android:background="@drawable/grey_dot_square"
+                        android:gravity="center"
+
+
+
+                        android:orientation="vertical">
+
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_200sdp"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY"
+                            bind:coverPic="@{viewModel.coverPic}"
+                            android:id="@+id/ivba"
+                            />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:id="@+id/iv_gray_plus"
+                            android:background="@drawable/grey_plus" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_below="@+id/iv_gray_plus"
+                            android:layout_marginLeft="@dimen/margin_10"
+                            android:fontFamily="@font/semibold"
+                            android:paddingTop="@dimen/margin_10"
+                            android:text="Add Pitstop Image"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_regular"
+                            android:textSize="@dimen/text_11" />
+
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/divider"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_extrasmall">
+
+                        <ImageView
+                            android:id="@+id/icon1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:tint="@color/green_icon_color"
+                            android:padding="@dimen/margin_10"
+                            android:src="@drawable/trail_big" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/icon1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/semibold"
+                                android:text="Pitstop Name"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black_regular"
+                                android:textSize="@dimen/text_11" />
+
+                            <EditText
+                                android:id="@+id/trail_name_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:gravity="top"
+                                android:hint="Pitstop Name"
+                                android:maxLines="1"
+                                android:paddingLeft="@dimen/margin_2"
+                                android:paddingTop="@dimen/margin_extrasmall"
+                                android:paddingRight="@dimen/margin_2"
+                                android:paddingBottom="@dimen/margin_2"
+                                android:text="@={viewModel.name}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_13" />
+
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/divider"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_extrasmall">
+
+                        <ImageView
+                            android:id="@+id/icon2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:tint="@color/green_icon_color"
+                            android:padding="@dimen/margin_10"
+                            android:src="@drawable/ic_document" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/icon2"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/semibold"
+                                android:text="Pitstop Summary"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black_regular"
+                                android:textSize="@dimen/text_11" />
+
+                            <EditText
+                                android:id="@+id/trail_summery_et"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:gravity="top"
+                                android:hint="Write Pitstop Description"
+                                android:maxLength="500"
+                                android:minLines="3"
+                                android:paddingLeft="@dimen/margin_2"
+                                android:paddingTop="@dimen/margin_10"
+                                android:paddingRight="@dimen/margin_2"
+                                android:paddingBottom="@dimen/margin_2"
+                                android:text="@={viewModel.description}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_13" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="right"
+                                android:gravity="right"
+                                android:paddingBottom="@dimen/margin_10"
+                                android:text="@{viewModel.count}"
+                                android:textColor="@color/light_text"
+                                android:textSize="@dimen/text_11" />
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+   <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/divider"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_extrasmall">
+
+                        <ImageView
+                            android:id="@+id/icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:padding="@dimen/margin_10"
+                            android:tint="@color/green_icon_color"
+                            android:src="@drawable/ic_place_black_24dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/icon"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:fontFamily="@font/semibold"
+                                android:text="Pitstop Location"
+                                android:textAllCaps="true"
+
+                                android:textColor="@color/black_regular"
+                                android:textSize="@dimen/text_11" />
+
+                            <EditText
+                                android:id="@+id/ed_location"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:gravity="top"
+                                android:hint="Enter pitstop location"
+                                android:maxLength="120"
+                                android:minLines="3"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:paddingLeft="@dimen/margin_2"
+                                android:paddingTop="@dimen/margin_10"
+                                android:paddingRight="@dimen/margin_2"
+                                android:paddingBottom="@dimen/margin_2"
+                                android:text="@={viewModel.address}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_13" />
+
+
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+
+
+
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/divider"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_extrasmall">
+
+                        <ImageView
+                            android:id="@+id/icon3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:tint="@color/green_icon_color"
+                            android:layout_alignParentLeft="true"
+                            android:padding="@dimen/margin_10"
+                            android:src="@drawable/cal_" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/icon3">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/semibold"
+                                android:text="date"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black_regular"
+                                android:textSize="@dimen/text_11" />
+
+                            <TextView
+                                android:id="@+id/start_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:fontFamily="@font/semibold"
+                                android:drawableRight="@drawable/down_arrow"
+                                android:drawablePadding="@dimen/margin_5"
+                                android:paddingRight="@dimen/margin_extrasmall"
+                                android:text="@={viewModel.startdate}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_13" />
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/divider"
+                        android:gravity="center_vertical"
+                        android:visibility="gone"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_extrasmall">
+
+                        <ImageView
+                            android:id="@+id/icon4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:padding="@dimen/margin_10"
+                            android:src="@drawable/cal_" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/icon4">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/semibold"
+                                android:text="end date"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black_regular"
+                                android:textSize="@dimen/text_11" />
+
+                            <TextView
+                                android:id="@+id/end_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:fontFamily="@font/semibold"
+                                android:paddingRight="@dimen/margin_extrasmall"
+                                android:text="@={viewModel.enddate}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_11" />
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/divider"
+                        android:visibility="gone"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_extrasmall">
+
+                        <ImageView
+                            android:id="@+id/icon5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:padding="@dimen/margin_10"
+                            android:src="@drawable/trail_big"
+                            android:visibility="invisible" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+
+                            android:layout_toRightOf="@+id/icon5">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/semibold"
+                                android:text="who can see my trip"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black_regular"
+                                android:textSize="@dimen/text_11" />
+
+                            <TextView
+                                android:id="@+id/who_can_see"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:fontFamily="@font/semibold"
+                                android:paddingRight="@dimen/margin_extrasmall"
+                                android:text="@={viewModel.whoCanSee}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_11" />
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/divider"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_extrasmall">
+
+                        <ImageView
+                            android:id="@+id/icon6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:padding="@dimen/margin_10"
+                            android:tint="@color/green_icon_color"
+                            android:src="@drawable/trail_big"
+                            android:visibility="invisible" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+
+                            android:layout_toRightOf="@+id/icon6">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/semibold"
+                                android:text="Category"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black_regular"
+                                android:textSize="@dimen/text_11" />
+
+                            <TextView
+                                android:id="@+id/categoryTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:fontFamily="@font/semibold"
+                                android:drawablePadding="@dimen/margin_5"
+                                android:drawableRight="@drawable/down_arrow"
+                                android:paddingRight="@dimen/margin_extrasmall"
+                                android:text="@={viewModel.category}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_13" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:visibility="gone"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingRight="@dimen/margin_extrasmall">
+
+                        <ImageView
+                            android:id="@+id/icon7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:padding="@dimen/margin_10"
+                            android:src="@drawable/trail_big"
+                            android:visibility="invisible" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+
+                            android:layout_toRightOf="@+id/icon7">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/semibold"
+                                android:text="Map Style"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black_regular"
+                                android:textSize="@dimen/text_11" />
+
+                            <TextView
+                                android:id="@+id/tv_mapStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:fontFamily="@font/semibold"
+                                android:paddingRight="@dimen/margin_extrasmall"
+                                android:text="@={viewModel.mapStyle}"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/text_13" />
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+
+
+                    <Button
+                        android:id="@+id/btn_save"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="@dimen/margin_30"
+                        android:background="@color/colorPrimary"
+                        android:fontFamily="@font/semibold"
+                        android:textSize="@dimen/text_17"
+                        android:textAllCaps="false"
+                        android:layout_marginBottom="@dimen/margin_30"
+                        android:onClick="@{()->viewModel.validateData()}"
+                        android:padding="@dimen/margin_20"
+                        android:text="Save"
+                        bind:errorMsg="@{viewModel.errorMsg}"
+                        android:textColor="@color/white_regular" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+      <!--  </ScrollView>-->
+
+    <!--    <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/black_regular"
+            android:progressTint="@color/black_regular"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />-->
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
+</layout>

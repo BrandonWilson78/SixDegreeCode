@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="app.sixdegree.databinding.CountryTextBinding">
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/semibold"
+         android:textAllCaps="true"
+        android:text="INDIA"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_extrasmall"
+        android:textSize="@dimen/text_11"
+        android:gravity="center"/>
+    <ImageView
+        android:id="@+id/flag"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        android:padding="@dimen/margin_10"
+        />
+</LinearLayout>
+</layout>

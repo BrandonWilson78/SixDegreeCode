@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="1dp"
+    android:paddingRight="1dp"
+    android:paddingTop="2dp"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+           android:layout_width="match_parent"
+            android:layout_height="@dimen/_120sdp"
+            android:id="@+id/ll_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rv_im"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/image_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+
+                <LinearLayout
+                    android:id="@+id/view_"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                     android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/text_15">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bold"
+                        android:textAllCaps="true"
+                        android:gravity="center"
+                         android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_13" />
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/semibold"
+                        android:gravity="center"
+                        android:textAllCaps="true"
+                        android:text=""
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_11" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_10"
+                        android:id="@+id/iv_go"
+                        android:src="@drawable/ic_back_arrow_bg" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/bottom_bg"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ll_parent"
+        android:background="@color/grey_bg">
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:tint="@color/black_regular"
+            android:padding="@dimen/margin8"
+             android:layout_alignParentRight="true"
+             android:src="@drawable/ic_baseline_delete_24"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:orientation="horizontal">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:drawableRight="@drawable/trail_"
+                android:layout_gravity="center"
+                 android:padding="@dimen/margin_10"
+                 android:fontFamily="@font/regular"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_11" />
+
+            <TextView
+                android:id="@+id/trails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/margin_10"
+                 android:text=" "
+                android:layout_gravity="center"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/black_regular"
+                android:textAllCaps="true"
+                 android:textSize="@dimen/text_11" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:padding="@dimen/margin_5"
+                android:text="PITSTOPS"
+                android:layout_gravity="center"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_11" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>
+

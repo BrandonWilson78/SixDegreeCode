@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="app.sixdegree.BlockedUserRowViewbinding">
+
+         <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.BlockedUsersRowVm" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/divider"
+        android:padding="@dimen/margin_10">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                bind:profilePic="@{viewModel.profilePic}"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="@dimen/margin_10"
+                android:src="@drawable/logo_circle" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_status"
+                android:layout_toRightOf="@+id/image"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/margin_10"
+                android:paddingTop="@dimen/margin_extrasmall"
+                android:paddingRight="@dimen/margin_10">
+
+                <TextView
+                    android:id="@+id/name_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/semibold"
+                    android:paddingBottom="@dimen/margin_extrasmall"
+                    android:text="@{viewModel.name}"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:id="@+id/city"
+                    android:layout_width="match_parent"
+                    android:text="@{viewModel.location}"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_11" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/btn_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_10"
+                android:background="@color/green_icon_color"
+                android:paddingLeft="@dimen/margin_10"
+                android:paddingTop="@dimen/margin_extrasmall"
+                android:paddingRight="@dimen/margin_10"
+                android:paddingBottom="@dimen/margin_extrasmall"
+                android:text="unblock"
+                android:onClick="@{viewModel::unFollowUser}"
+                android:textAllCaps="true"
+                android:textColor="@color/white_regular"
+                android:textSize="@dimen/text_11" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>
+

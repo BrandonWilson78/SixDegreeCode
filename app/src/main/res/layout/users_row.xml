@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+
+    <data class="app.sixdegree.databinding.UserRowDataBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.SixDegreeSearchRowVm" />
+    </data>
+    <RelativeLayout
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/divider"
+    android:padding="@dimen/margin_10">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/rv"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="60dp"
+            bind:setuserimg="@{viewModel.userimg}"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/margin_10"
+            android:src="@drawable/logo_circle" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+             android:layout_toRightOf="@+id/image"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/margin_10"
+            android:paddingTop="@dimen/margin_extrasmall"
+            android:paddingRight="@dimen/margin_10">
+
+            <TextView
+                android:id="@+id/name_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/semibold"
+                android:text="@{viewModel.name}"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_15" />
+
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.locationname}"
+ android:fontFamily="@font/regular"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_13" />
+
+            <TextView
+                android:id="@+id/mutaual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:text="@{viewModel.mutualfriends}"
+                 android:textColor="@color/light_text"
+                android:textSize="@dimen/text_13" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="@{viewModel.userStatus}"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black_regular"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/regular"
+                android:gravity="right"
+                android:layout_marginTop="@dimen/margin8"
+                android:paddingLeft="@dimen/margin_10"
+                android:visibility="@{viewModel.added?View.VISIBLE:View.GONE}"
+                android:layout_height="wrap_content">
+
+            </TextView>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:onClick="@{(view)->viewModel.followUser(add)}"
+            android:layout_marginRight="@dimen/margin_10"
+            android:paddingLeft="@dimen/margin_10"
+            android:visibility="@{viewModel.added?View.GONE:View.VISIBLE}"
+            bind:errorMsg="@{viewModel.errorMsg}"
+
+            android:src="@drawable/add" />
+
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout></layout>

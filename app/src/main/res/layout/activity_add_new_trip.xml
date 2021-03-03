@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+
+    <data class="app.sixdegree.databinding.ActivityAddNewTripViewBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.AddTripVm" />
+    </data>
+
+    <RelativeLayout
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+
+            android:background="@color/colorPrimary">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/back"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="@dimen/margin_10"
+                    android:drawableTint="@color/white_regular"
+                    android:fontFamily="@font/semibold"
+                    android:text="new trip"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white_regular" />
+
+
+                <TextView
+                    android:id="@+id/ptrips"
+                    android:layout_width="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/save"
+                    android:fontFamily="@font/semibold"
+                    android:layout_marginRight="@dimen/margin_10"
+                    android:drawableTint="@color/white"
+                    android:gravity="right"
+                    android:visibility="gone"
+                    android:drawablePadding="@dimen/margin_10"
+                    android:drawableLeft="@drawable/trail_"
+                    android:text="Previous Trips"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white_regular" />
+
+                <ImageView
+                    android:id="@+id/save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:onClick="@{()->viewModel.validateData()}"
+                    android:paddingRight="@dimen/margin_10"
+                    android:paddingLeft="@dimen/margin_10"
+                    android:src="@drawable/profile_save"
+                    android:tint="@color/white_regular"
+                    bind:errorMsg="@{viewModel.errorMsg}" />
+            </RelativeLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/add_trips_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_bg"
+                android:padding="@dimen/margin_15"
+                android:text="add past trips , currents or future trips"
+                android:textAllCaps="true"
+                android:textColor="@color/light_text"
+                android:textSize="@dimen/text_13" />
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/add_cover_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_15"
+                android:layout_marginRight="@dimen/margin_15"
+                android:background="@drawable/divider"
+                android:orientation="horizontal"
+
+                android:paddingLeft="@dimen/margin_15"
+                android:paddingTop="@dimen/margin_20"
+                android:paddingRight="@dimen/margin_15"
+                android:paddingBottom="@dimen/margin_30"
+                android:weightSum="10">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_180sdp"
+
+                    android:background="@drawable/grey_dot_square"
+                    android:gravity="center">
+
+
+                    <TextView
+                        android:id="@+id/cover_lbl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/text_13"
+                        android:padding="@dimen/margin_10"
+                        android:text="Add cover photo"
+                        android:textColor="@color/black_regular" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/ivbg"
+                        android:scaleType="centerCrop"
+
+                        bind:coverPic="@{viewModel.coverPic}"
+
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/margin_30"
+                        android:id="@+id/ivAddPicture"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"
+                        android:layout_marginBottom="@dimen/margin_30"
+                        android:paddingTop="@dimen/margin_10"
+                        android:paddingBottom="@dimen/margin_10"
+                        android:src="@drawable/camera_" />
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_10"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/margin_15"
+                android:paddingRight="@dimen/margin_15">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/divider"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/margin_extrasmall"
+                    android:paddingRight="@dimen/margin_extrasmall">
+
+                    <ImageView
+                        android:id="@+id/icon1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:padding="@dimen/margin_10"
+                        android:src="@drawable/trail_big" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/icon1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/semibold"
+                            android:text="Trip Name"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_regular"
+                            android:textSize="@dimen/text_11" />
+
+                        <EditText
+                            android:id="@+id/trail_name_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:gravity="top"
+                            android:hint="Trip Name"
+                            android:maxLines="1"
+                            android:text="@={viewModel.name}"
+                            android:paddingLeft="@dimen/margin_2"
+                            android:paddingTop="@dimen/margin_extrasmall"
+                            android:paddingRight="@dimen/margin_2"
+                            android:paddingBottom="@dimen/margin_2"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_13" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/divider"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/margin_10"
+                    android:paddingRight="@dimen/margin_extrasmall">
+
+                    <ImageView
+                        android:id="@+id/icon2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                         android:padding="@dimen/margin_10"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/ic_document" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/icon2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/semibold"
+                            android:text="Trip Summary"
+                            android:textAllCaps="true"
+                 android:textColor="@color/black_regular"
+                            android:textSize="@dimen/text_11" />
+
+                        <EditText
+                            android:id="@+id/trail_summery_et"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:gravity="top"
+                            android:hint="Write trip description"
+                            android:maxLength="500"
+                            android:minLines="3"
+                            android:paddingLeft="@dimen/margin_2"
+                            android:paddingTop="@dimen/margin_10"
+                            android:paddingRight="@dimen/margin_2"
+                            android:text="@={viewModel.description}"
+                            android:paddingBottom="@dimen/margin_2"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_13" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:gravity="right"
+                            android:paddingBottom="@dimen/margin_10"
+                            android:text="@{viewModel.count}"
+                             android:textColor="@color/light_text"
+                            android:textSize="@dimen/text_11" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/divider"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/margin_extrasmall"
+                    android:paddingRight="@dimen/margin_extrasmall">
+
+                    <ImageView
+                        android:id="@+id/icon3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tint="@color/colorPrimaryDark"
+                        android:layout_alignParentLeft="true"
+                        android:padding="@dimen/margin_10"
+                        android:src="@drawable/cal_" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/icon3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/semibold"
+                            android:text="start date"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_regular"
+                            android:textSize="@dimen/text_11" />
+
+                        <TextView
+                            android:id="@+id/start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/down_arrow"
+                            android:drawablePadding="@dimen/margin_5"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/semibold"
+                            android:paddingRight="@dimen/margin_extrasmall"
+                            android:text="@={viewModel.startdate}"                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_13" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/divider"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/margin_extrasmall"
+                    android:paddingRight="@dimen/margin_extrasmall">
+
+                    <ImageView
+                        android:id="@+id/icon4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:padding="@dimen/margin_10"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/cal_" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/icon4">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/semibold"
+                            android:text="end date"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_regular"
+                            android:textSize="@dimen/text_11" />
+
+                        <TextView
+                            android:id="@+id/end_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/semibold"
+                            android:paddingRight="@dimen/margin_extrasmall"
+
+                            android:drawableRight="@drawable/down_arrow"
+                            android:drawablePadding="@dimen/margin_5"
+                            android:text="@={viewModel.enddate}"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_13" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/divider"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+
+                    android:paddingTop="@dimen/margin_extrasmall"
+                    android:paddingRight="@dimen/margin_extrasmall">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/rl_textimg"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/icon_"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:tint="@color/colorPrimaryDark"
+                            android:padding="@dimen/margin_10"
+                            android:src="@drawable/ic_tag" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@+id/icon_">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:fontFamily="@font/semibold"
+                                android:text="Tag friends"
+                                android:textAllCaps="true"
+                                android:textColor="@color/black_regular"
+                                android:textSize="@dimen/text_11" />
+
+
+                        </RelativeLayout>
+
+
+
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tagnames"
+                        android:layout_marginLeft="45dp"
+                        android:fontFamily="@font/regular"
+                        android:text="@{viewModel.friendsnames}"
+                        android:paddingBottom="@dimen/margin_10"
+                        android:layout_below="@+id/rl_textimg"
+                         android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_13" />
+                </RelativeLayout>
+
+
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/divider"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/margin_extrasmall"
+                    android:paddingRight="@dimen/margin_extrasmall">
+
+                    <ImageView
+                        android:id="@+id/icon5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:padding="@dimen/margin_10"
+                        android:src="@drawable/trail_big"
+                        android:visibility="invisible" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+
+                        android:layout_toRightOf="@+id/icon5">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/semibold"
+                            android:text="who can see my trip"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_regular"
+                            android:textSize="@dimen/text_11" />
+
+                        <TextView
+                            android:id="@+id/who_can_see"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:drawableRight="@drawable/down_arrow"
+                            android:drawablePadding="@dimen/margin_5"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/semibold"
+                            android:paddingRight="@dimen/margin_extrasmall"
+
+                            android:text="@={viewModel.whoCanSee}"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_13" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/divider"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/margin_extrasmall"
+                    android:paddingRight="@dimen/margin_extrasmall">
+
+                    <ImageView
+                        android:id="@+id/icon6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:padding="@dimen/margin_10"
+                        android:src="@drawable/trail_big"
+                        android:visibility="invisible" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+
+                        android:layout_toRightOf="@+id/icon6">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/semibold"
+                            android:text="Category"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_regular"
+                            android:textSize="@dimen/text_11" />
+
+                        <TextView
+                            android:id="@+id/category_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:fontFamily="@font/semibold"
+                            android:paddingRight="@dimen/margin_extrasmall"
+                            android:text="@={viewModel.category}"
+
+                            android:drawableRight="@drawable/down_arrow"
+                            android:drawablePadding="@dimen/margin_5"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_13" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/margin_extrasmall"
+                    android:paddingRight="@dimen/margin_extrasmall">
+
+                    <ImageView
+                        android:id="@+id/icon7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:padding="@dimen/margin_10"
+                        android:src="@drawable/trail_big"
+                        android:visibility="invisible" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/icon7">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/semibold"
+                            android:text="Map Style"
+                            android:textAllCaps="true"
+                            android:textColor="@color/black_regular"
+                            android:textSize="@dimen/text_11" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:id="@+id/tvMapStyle"
+                            android:fontFamily="@font/semibold"
+                            android:paddingRight="@dimen/margin_extrasmall"
+
+                            android:drawableRight="@drawable/down_arrow"
+                            android:drawablePadding="@dimen/margin_5"
+                            android:text="@={viewModel.mapStyle}"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/text_13" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                     android:layout_marginTop="@dimen/margin_30"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="@font/semibold"
+                    android:textSize="@dimen/text_17"
+                     android:textAllCaps="false"
+                    android:layout_marginBottom="@dimen/margin_30"
+                    android:onClick="@{()->viewModel.validateData()}"
+                    android:padding="@dimen/margin_20"
+                    android:text="Save"
+                    bind:errorMsg="@{viewModel.errorMsg}"
+                    android:textColor="@color/white_regular" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+<!--
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/black_regular"
+            android:progressTint="@color/black_regular"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+-->
+
+    </RelativeLayout>
+</layout>

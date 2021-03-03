@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data class="app.sixdegree.databinding.ItemTrailHeaderBinding">
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.HeaderVm" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="@dimen/_235sdp"
+        android:tag="header"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_extrasmall"
+        android:background="@color/white_regular"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="@dimen/_225sdp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:background="@color/black_regular"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_20">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_start"
+                    android:drawableRight="@drawable/right_small"
+                    android:drawablePadding="@dimen/margin_15"
+                    android:fontFamily="@font/bold"
+                    android:text="swipe to start"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white_regular"
+                    android:textSize="@dimen/text_13" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/margin_extrasmall">
+
+                    <ImageView
+                        android:id="@+id/flag"
+                        android:layout_width="25dp"
+                        android:layout_height="23dp"
+                        android:adjustViewBounds="true"
+                        bind:flag="@{viewModel.countryFlag}" />
+
+                    <TextView
+                        android:id="@+id/loc_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/bold"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:text="@{viewModel.count}"
+                        android:textAllCaps="true"
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_13" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginTop="@dimen/margin_20"
+                android:layout_toRightOf="@+id/ll"
+                android:src="@drawable/white_arrow_down"
+                android:tint="@color/black_regular" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/apk/res-auto">
+
+    <data class="app.sixdegree.databinding.ActivityLoginBinding">
+
+        <import type="android.view.View" />
+     <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.LoginViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottom_view"
+            android:layout_alignParentTop="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="handleBack"
+                    android:padding="@dimen/margin_20"
+                    android:src="@drawable/back" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_30"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_30">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_30"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/logo_white" />
+
+                        <EditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:background="@drawable/divider"
+                            android:drawableLeft="@drawable/_envelopeicon_white"
+                            android:drawablePadding="@dimen/margin_20"
+                            android:hint="@string/username_email_address"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress"
+                            android:padding="@dimen/margin_20"
+                            android:cursorVisible="true"
+android:textCursorDrawable="@drawable/cursir_clr"
+                            android:text="@={viewModel.userEmail}"
+                            android:textColor="@color/white_regular"
+                            android:textColorHint="@color/green_light"
+                            android:textSize="@dimen/text_13" />
+
+                        <EditText
+                            android:id="@+id/password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/divider"
+                            android:drawableLeft="@drawable/lock"
+                            android:drawableRight="@drawable/hide_p"
+                            android:drawablePadding="@dimen/margin_20"
+                            android:drawableTint="@color/white_regular"
+                            android:hint="Password"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:padding="@dimen/margin_20"
+                            android:selectAllOnFocus="false"
+                            android:text="@={viewModel.userPassword}"
+                            android:textColor="@color/white_regular"
+                            android:textColorHint="@color/green_light"
+                            android:textCursorDrawable="@drawable/cursir_clr"
+                            android:textIsSelectable="false"
+                            android:textSize="@dimen/text_13" />
+
+
+                        <Button
+                            android:id="@+id/btn_login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_30"
+                            android:background="@color/white_regular"
+                            android:onClick="@{(view)-> viewModel.onLoginClicked(view)}"
+                            android:padding="@dimen/margin_20"
+                            android:text="Login"
+                            android:textSize="@dimen/text_17"
+                            android:fontFamily="@font/semibold"
+                            android:textAllCaps="false"
+                            bind:toastMessage="@{viewModel.toastMessage}" />
+
+                        <TextView
+                            android:id="@+id/btn_forgot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/margin_10"
+                            android:text="Forgot Password?"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white_regular"
+                            android:textSize="@dimen/text_15" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/bottom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0.7dp"
+                    android:layout_marginLeft="@dimen/margin_20"
+                    android:layout_weight=".5"
+                    android:background="@color/white_regular" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center"
+                    android:text="OR LOGIN BY"
+                    android:textColor="@color/white_regular" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0.7dp"
+                    android:layout_marginRight="@dimen/margin_20"
+                    android:layout_weight=".5"
+                    android:background="@color/white_regular" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_10">
+
+
+                    <ImageView
+                        android:id="@+id/btn_fb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:contentDescription="@string/login_via_facebook"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_10"
+                        android:src="@drawable/_facebook_green"
+                        android:tint="@color/white_regular" />
+
+                    <ImageView
+                        android:id="@+id/btn_whatsapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:contentDescription="Login Via Facebook"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:visibility="gone"
+                        android:paddingRight="@dimen/margin_10"
+                        android:src="@drawable/what_green"
+                        android:tint="@color/white_regular" />
+
+                    <ImageView
+                        android:id="@+id/btn_google"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:contentDescription="Login Via Facebook"
+                        android:paddingLeft="@dimen/margin_10"
+                        android:paddingRight="@dimen/margin_10"
+                        android:src="@drawable/google_g"
+                        android:tint="@color/white_regular" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/black_regular"
+            android:progressTint="@color/black_regular"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+</layout>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="app.sixdegree.ActivityBlockedUsersViewBinding">
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.BlockedUsersVm" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/back"
+                android:drawablePadding="@dimen/margin_10"
+                android:drawableTint="@color/white_regular"
+                android:fontFamily="@font/semibold"
+                android:text="Blocked Users"
+                android:textAllCaps="true"
+                android:textColor="@color/white_regular"
+                android:textSize="@dimen/margin_15" />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tool_layout"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_dummytext"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:fontFamily="@font/regular"
+            android:visibility="@{viewModel.isVisible ? View.VISIBLE : View.INVISIBLE}"
+            android:textSize="@dimen/text_15"
+            android:text="@{viewModel.dummytext}"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_friends"
+            app:adapter="@{viewModel.adapter}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           />
+    </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

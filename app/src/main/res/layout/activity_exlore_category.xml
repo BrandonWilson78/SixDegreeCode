@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="app.sixdegree.databinding.ActivityExloreCategoryBinding">
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.ExploreCategoryVm" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@{viewModel.toolbarTitle}"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_17" />
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin8"
+                android:src="@drawable/back" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/explore_rve"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool"
+            android:layout_above="@+id/btnSubmit"
+            app:adapter="@{viewModel.adapter}" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+             android:background="@color/colorPrimary"
+            android:padding="@dimen/margin_20"
+            android:text="Submit"
+            android:textSize="@dimen/text_17"
+            android:textAllCaps="false"
+            android:fontFamily="@font/semibold"
+            android:visibility="@{viewModel.btnVisible ? View.VISIBLE : View.GONE}"
+            android:enabled="true"
+            android:onClick="@{()-> viewModel.onSubmitClicled()}"
+            android:soundEffectsEnabled="true"
+             android:defaultFocusHighlightEnabled="true"
+            android:textColor="@color/white" />
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/black_regular"
+            android:progressTint="@color/black_regular"
+            android:visibility="@{viewModel.loaded ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

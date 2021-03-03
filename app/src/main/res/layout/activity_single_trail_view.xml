@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+
+    <data class="app.sixdegree.databinding.ActivitySingleTrailViewBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.SingleTrailViewVm" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_lay"
+            android:layout_alignParentTop="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/blockone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tool_layout">
+
+                        <com.google.android.gms.maps.MapView
+                            android:id="@+id/map"
+                            android:name="com.google.android.gms.maps.MapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+
+                            android:apiKey="@string/google_api_key" />
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/marker" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:background="@color/colorPrimary"
+                      >
+
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/ll"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_placename"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:fontFamily="@font/semibold"
+                                android:layout_margin="5dp"
+                                android:text="@{viewModel.placename}"
+                                android:textColor="@color/white_regular"
+                                android:textSize="@dimen/text_13" />
+
+                            <ImageView
+                                android:id="@+id/iv_flag"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="center"
+                                 android:clickable="true"
+                                android:padding="@dimen/margin_extrasmall"
+                                bind:flag="@{viewModel.flagImage}" />
+
+                            <TextView
+                                android:id="@+id/tv_countryname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                 android:fontFamily="@font/semibold"
+                                android:text="@{viewModel.countryname}"
+                                android:padding="@dimen/margin_5"
+                                android:textAllCaps="true"
+                                android:textColor="@color/white_regular"
+                                android:textSize="@dimen/text_11" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/edit"
+                            android:layout_width="30dp"
+                            android:layout_below="@+id/ll"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_alignParentRight="true"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:onClick="@{(view) -> viewModel.goToPlanNextTripActivity(view)}"
+                            android:padding="@dimen/margin_extrasmall"
+                            android:src="@drawable/edit_white_" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/iv_tripimage"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toRightOf="@+id/trails_rv"
+                        android:background="@drawable/grey_dot_square"
+                        bind:profilePic="@{viewModel.profilePic}"></RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_des"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        android:paddingLeft="@dimen/margin_20"
+                        android:fontFamily="@font/regular"
+                        android:paddingTop="@dimen/margin_10"
+
+                        android:paddingRight="@dimen/margin_20"
+                        android:paddingBottom="@dimen/margin_10"
+                        android:text="@{viewModel.description}"
+                        android:textColor="@color/white_regular"
+                        android:textSize="@dimen/text_13" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/margin_extrasmall"
+                        android:paddingBottom="@dimen/margin_extrasmall">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:id="@+id/iv_like"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="?android:attr/selectableItemBackground"
+                                    android:clickable="true"
+                                    android:onClick="@{(view)-> viewModel.unlikeTrail(view)}"
+                                    android:padding="@dimen/margin_10"
+                                    android:src="@drawable/heart_black_"
+                                    android:tint="@color/red"
+                                    android:visibility="@{viewModel.likeStatus ? View.VISIBLE : View.GONE}" />
+
+                                <ImageView
+                                    android:id="@+id/iv_unlike"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="?android:attr/selectableItemBackground"
+                                    android:clickable="true"
+                                    android:padding="@dimen/margin_10"
+                                    android:tint="@color/red"
+
+                                    android:onClick="@{(view)-> viewModel.likeTrail( )}"
+                                    android:src="@drawable/heart"
+                                    android:visibility="@{viewModel.likeStatus ? View.GONE : View.VISIBLE}" />
+                            </RelativeLayout>
+
+
+                            <ImageView
+                                android:id="@+id/comment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:padding="@dimen/margin_10"
+                                android:tint="@color/green"
+                                android:src="@drawable/chat_black_" />
+
+                            <ImageView
+                                android:id="@+id/share"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:padding="@dimen/margin_10"
+                                android:visibility="gone"
+                                android:src="@drawable/share_" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/margin_30"
+                        android:visibility="@{viewModel.imageVisible? View.VISIBLE :View.GONE }"
+
+                        android:paddingRight="@dimen/margin_30">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="left"
+                            android:orientation="horizontal"
+                            android:paddingTop="@dimen/margin_2"
+                            android:paddingBottom="@dimen/margin_extrasmall">
+
+
+                            <ImageView
+                                android:id="@+id/image_three"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                bind:setyouimage="@{viewModel.youimage}"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/margin_10"
+                                android:padding="@dimen/margin_10" />
+
+                            <ImageView
+                                android:id="@+id/image_two"
+                                android:layout_width="60dp"
+                                bind:setfirstimage="@{viewModel.fristUserImage}"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/margin_extrasmall"
+                                android:padding="@dimen/margin_10" />
+
+                            <ImageView
+                                android:id="@+id/image_one"
+                                android:layout_width="60dp"
+                                bind:setsecondimage="@{viewModel.seconduserimage}"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center_vertical"
+                                android:padding="@dimen/margin_10" />
+
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/likes_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/semibold"
+                            android:gravity="center_vertical"
+                             android:padding="@dimen/margin_10"
+                            android:text="@{viewModel.likString}"
+                            android:textSize="@dimen/text_11" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/comments_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/blockone"
+                    android:paddingLeft="@dimen/margin_30"
+                    bind:adapter="@{viewModel.trailCommentsAdapter}"
+                    android:paddingTop="@dimen/margin_10"
+                    android:paddingRight="@dimen/margin_30" />
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <RelativeLayout
+            android:id="@+id/bottom_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/black_regular">
+
+            <EditText
+                android:id="@+id/ed_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/margin8"
+                android:layout_marginRight="@dimen/margin8"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_10"
+                 android:background="@color/white_regular"
+                android:hint="Write a comment"
+                android:fontFamily="@font/regular"
+                android:includeFontPadding="false"
+                android:padding="@dimen/margin_10"
+                android:text="@={viewModel.comment}"
+                android:textColor="@color/black_regular"
+                android:textColorHint="@color/light_text"
+                android:textSize="@dimen/text_11" />
+
+            <ImageView
+                android:id="@+id/ivSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:paddingLeft="@dimen/margin_20"
+
+                android:onClick="@{(view) -> viewModel.addComment(view)}"
+                android:paddingRight="@dimen/margin_20"
+                android:src="@drawable/ic_back_arrow_bg" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/green_icon_color"
+            android:progressTint="@color/green_icon_color"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}" />
+
+
+    </RelativeLayout>
+</layout>

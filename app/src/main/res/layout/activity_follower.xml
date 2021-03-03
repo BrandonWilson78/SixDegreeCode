@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="app.sixdegree.ActivityFriendsBinding">
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="app.sixdegree.viewModel.DataViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/back"
+                android:drawablePadding="@dimen/margin_10"
+                android:drawableTint="@color/white_regular"
+                android:fontFamily="@font/semibold"
+                android:text="@{viewModel.toolbarTitle}"
+                android:textAllCaps="true"
+                android:textColor="@color/white_regular"
+                android:textSize="@dimen/margin_15" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:id="@+id/iv_add"
+                android:layout_gravity="right"
+                android:visibility="gone"
+                 android:padding="@dimen/margin_10"
+                android:src="@drawable/addfriendsicon_dgreen"
+                android:tint="@color/white_regular" />
+        </androidx.appcompat.widget.Toolbar>
+
+<!--        <com.cooltechworks.views.shimmer.ShimmerRecyclerView-->
+<!--            android:id="@+id/shimmer_recycler_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/tool_layout"-->
+<!--            app:shimmer_demo_angle="45"-->
+<!--            android:visibility="@{viewModel.loading ? View.VISIBLE : View.GONE}"-->
+<!--            app:shimmer_demo_child_count="10"-->
+<!--            app:shimmer_demo_layout="@layout/shimmer_demo_row"-->
+<!--            app:shimmer_demo_layout_manager_type="linear_vertical" />-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tool_layout"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_dummytext"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+             android:fontFamily="@font/regular"
+            android:visibility="@{viewModel.isVisible ? View.VISIBLE : View.INVISIBLE}"
+            android:textSize="@dimen/text_15"
+            android:text="@{viewModel.dummytext}"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_friends"
+            app:adapter="@{viewModel.adapter}"
+            android:visibility="@{viewModel.visible ? View.INVISIBLE : View.VISIBLE}"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

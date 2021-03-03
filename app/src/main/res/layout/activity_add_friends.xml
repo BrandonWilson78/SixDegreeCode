@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_regular"
+    android:orientation="vertical"
+    tools:context=".view.activity.loginModule.AddFriendsActivity">
+
+    <ImageView
+        android:id="@+id/backaddfriends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+         android:padding="@dimen/margin_20"
+        android:src="@drawable/_backicon_blue" />
+
+    <ScrollView
+        android:id="@+id/ss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@+id/btn_enable"
+        android:layout_below="@+id/backaddfriends"
+        android:layout_alignParentStart="true"
+         android:layout_centerVertical="true"
+       >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/margin_20"
+                android:paddingRight="@dimen/margin_20">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/margin_20"
+                    android:src="@drawable/add_friends" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/semibold"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10"
+                    android:text="@string/add_friends"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_17" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10"
+                    android:fontFamily="@font/regular"
+                    android:gravity="center"
+                    android:text="We never post anything without your permission."
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:id="@+id/addFromFb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20"
+                     android:layout_marginBottom="@dimen/margin_10"
+                    android:background="@drawable/divider"
+                    android:drawableLeft="@drawable/searchicon_white"
+                    android:drawablePadding="@dimen/margin_15"
+                    android:drawableTint="@color/green_icon_color"
+
+                    android:fontFamily="@font/semibold"
+                    android:padding="@dimen/margin_15"
+                    android:text="add friends from facebook"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:id="@+id/addFromContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10"
+                    android:background="@drawable/divider"
+                    android:drawableTint="@color/green_icon_color"
+
+                    android:drawableLeft="@drawable/addressbookicon_dgreen"
+                    android:drawablePadding="@dimen/margin_15"
+                    android:fontFamily="@font/semibold"
+                    android:padding="@dimen/margin_15"
+                    android:text="add friends in address book"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_13" />
+
+                <TextView
+                    android:id="@+id/invite_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/add_friend_green"
+                    android:drawablePadding="@dimen/margin_15"
+                    android:fontFamily="@font/semibold"
+                    android:padding="@dimen/margin_15"
+                    android:text="invite friends"
+                    android:drawableTint="@color/green_icon_color"
+
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_regular"
+                    android:textSize="@dimen/text_13" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/margin_15"
+                    android:background="@drawable/divider"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_10">
+
+
+                    <ImageView
+                        android:id="@+id/btn_fb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:contentDescription="@string/login_via_facebook"
+                        android:tint="@color/green_icon_color"
+                        android:padding="@dimen/margin_10"
+                        android:src="@drawable/_facebook_green" />
+
+                    <ImageView
+                        android:id="@+id/btn_whatsapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:tint="@color/green_icon_color"
+                        android:contentDescription="Login Via Facebook"
+                        android:padding="@dimen/margin_10"
+                        android:src="@drawable/what_green" />
+
+                    <ImageView
+                        android:id="@+id/btn_google"
+                        android:layout_width="wrap_content"
+                        android:tint="@color/green_icon_color"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:contentDescription="Login Via Facebook"
+                        android:padding="@dimen/margin_10"
+                        android:src="@drawable/google_g" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_enable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_30"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/margin_20"
+        android:textSize="@dimen/text_17"
+        android:fontFamily="@font/semibold"
+        android:textAllCaps="false"
+        android:text="next"
+        android:textColor="@color/white_regular" />
+
+</RelativeLayout>

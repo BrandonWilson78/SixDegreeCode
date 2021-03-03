@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "534922684682",
+    "firebase_url": "https://six-degrees-away.firebaseio.com",
+    "project_id": "six-degrees-away",
+    "storage_bucket": "six-degrees-away.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534922684682:android:86f3f3457a637fd4ebf2f3",
+        "android_client_info": {
+          "package_name": "app.sixdegree"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534922684682-plbb49noaa99nnedda0huv648c5uj50j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbPyoOQ3eG2rvTSheQYrXJOMnXF5aKNR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534922684682-plbb49noaa99nnedda0huv648c5uj50j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

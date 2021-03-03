@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="vm"
+            type="app.sixdegree.viewModel.VerifyEmailVm" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_regular"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:padding="@dimen/margin_20"
+            android:tint="@color/green_icon_color"
+            android:src="@drawable/_backicon_blue" />
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:visibility="@{vm.baseRes.status ? View.GONE : View.VISIBLE}"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingRight="@dimen/margin_20">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_20"
+                android:src="@drawable/envelopicon_blue" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/semibold"
+                android:gravity="center"
+                android:padding="@dimen/margin_10"
+                android:text="Email Verification"
+                android:textAllCaps="true"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_17" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:text="@string/email_string"
+                android:textAllCaps="true"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_11" />
+
+            <EditText
+                android:id="@+id/enter_code_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_30"
+                android:layout_marginTop="@dimen/margin_30"
+                android:layout_marginRight="@dimen/margin_30"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:hint="@string/enter_code"
+                android:text="@={vm.code}"
+                android:inputType="number"
+                android:padding="@dimen/margin_20"
+                android:textAllCaps="true"
+                android:textColor="@color/white_regular"
+                android:textColorHint="@color/white_regular"
+                android:textSize="@dimen/text_13" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:gravity="right"
+                android:layout_gravity="right"
+                android:onClick="@{(view)-> vm.resendcode(view)}"
+                android:text="@string/resendcode"
+android:padding="@dimen/margin_4"
+                 android:textColor="@color/black"
+                android:textSize="@dimen/text_13" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingRight="@dimen/margin_20"
+            android:visibility="@{vm.baseRes.status ? View.VISIBLE : View.GONE}"
+ >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_20"
+                android:src="@drawable/emailverifiedicon_blue" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/regular"
+                android:gravity="center"
+                android:text="@string/verified_string"
+                android:textAllCaps="true"
+                android:textColor="@color/black_regular"
+                android:textSize="@dimen/text_11" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_verify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginTop="@dimen/margin_30"
+            android:layout_marginRight="@dimen/margin_20"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/margin_20"
+            android:textSize="@dimen/text_17"
+            android:fontFamily="@font/semibold"
+            android:textAllCaps="false"
+            android:text="@{vm.baseRes.status ? vm.nEXT:vm.vERIFY  }"
+             android:onClick="@{()-> vm.onVerifyClick()}"
+            bind:baseRes="@{vm.baseRes}"
+            android:textColor="@color/white_regular" />
+
+        <ProgressBar
+            android:id="@+id/pbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/green_icon_color"
+            android:progressTint="@color/green_icon_color"
+            android:visibility="@{vm.isLoading ? View.VISIBLE : View.GONE}" />
+    </RelativeLayout>
+
+</layout>
